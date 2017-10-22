@@ -26,7 +26,7 @@ export default {
   methods: {
     onClick: function (event) {
       this.currentState = ['on', 'off'].find(_ => _ !== this.currentState)
-      this.$emit('stateChange', this.currentState)
+      this.$emit('update:state', this.currentState)
     }
   }
 }

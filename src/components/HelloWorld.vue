@@ -1,7 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <Knob state="off" @stateChange="stateChange"></Knob>
+    <p>{{ calcState }}</p>
+    <Knob :state.sync="state"></Knob>
   </div>
 </template>
 
@@ -12,12 +13,13 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      state: 'off'
     }
   },
-  methods: {
-    stateChange: function (state) {
-      console.log(state)
+  computed: {
+    calcState: function () {
+      return this.state
     }
   },
   components: {
